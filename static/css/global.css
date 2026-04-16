@@ -1,0 +1,50 @@
+/* global.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    min-height: max(884px, 100dvh); 
+}
+
+h1, h2, h3, .font-serif { 
+    font-family: 'Noto Serif', serif; 
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+/* --- ESTILOS DEL HEADER (NAVEGACIÓN) --- */
+
+/* Estilo base para todos los enlaces del menú */
+.nav-link {
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    color: rgba(49, 51, 44, 0.6); /* Color claro por defecto */
+}
+
+.dark .nav-link {
+    color: rgba(251, 249, 244, 0.6); /* Modo oscuro por defecto */
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Estilo diferencial para la página activa (negrita y subrayado) */
+.nav-link.active {
+    color: #516356;
+    font-weight: 700;
+    border-bottom: 2px solid #516356;
+    padding-bottom: 0.25rem;
+    opacity: 1;
+}
+
+.dark .nav-link.active {
+    color: #d4e7d8;
+    border-bottom-color: #d4e7d8;
+}

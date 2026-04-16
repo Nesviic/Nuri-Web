@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nuri - Mi Rutina{% endblock %}
+
+{% block content %}
+<main class="flex-grow pt-28 pb-20 max-w-6xl mx-auto px-6 w-full">
+    <div class="flex justify-between items-end mb-10">
+        <div>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-[#516356] mb-2">Mi Rutina</h1>
+            <p class="text-[#516356]/70 italic text-sm md:text-base">"La constancia es el ingrediente más poderoso."</p>
+        </div>
+        <div class="text-right">
+            <p class="text-xs font-bold text-[#516356]/70 uppercase tracking-wider mb-1">Estado de Hoy</p>
+            <div class="flex items-center gap-2 text-[#516356] font-bold">
+                <span class="material-symbols-outlined fill-current">energy_savings_leaf</span>
+                <span>{{ request.user.racha_dias|default:"0" }} días seguidos</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-[#f2f0e6] rounded-3xl p-6 md:p-8 relative flex flex-col justify-between overflow-hidden shadow-sm">
+            <div>
+                <p class="text-xs font-bold text-[#516356]/70 uppercase tracking-wider mb-3">Tu Perfil Cutáneo</p>
+                <h3 class="text-2xl font-serif font-bold text-[#516356] mb-2">
+                    {{ request.user.tipo_piel|title|default:"Aún sin analizar" }}
+                </h3>
+                <p class="text-base text-[#516356]/80">
+                    {{ request.user.preocupaciones|default:"Realiza tu diagnóstico para que Nuri adapte tus rutinas." }}
+                </p>
+            </div>
+
+            <button onclick="abrirModalDiagnostico()" class="mt-8 w-fit bg-[#516356] text-white text-sm font-bold px-6 py-3 rounded-full hover:bg-opacity-90 transition-all flex items-center gap-2 shadow-sm">
+                <span class="material-symbols-outlined text-[18px]">psychology</span> Realizar Diagnóstico
+            </button>
+            
+        </div>
+
+        <div class="bg-[#eedcbd] rounded-3xl p-6 md:p-8 relative flex flex-col justify-center shadow-sm overflow-hidden">
+            <span class="material-symbols-outlined absolute -right-4 -bottom-8 text-[150px] text-[#e0cfb0]/50 select-none">warning</span>
+            <div class="relative z-10">
+                <p class="text-xs font-bold text-[#8a6d3b] uppercase tracking-wider mb-4">Nuri AI - Alertas del entorno</p>
+                <div class="flex items-center gap-3 text-[#8a6d3b] font-bold text-2xl mb-3">
+                    <span class="material-symbols-outlined text-3xl">light_mode</span> Índice UV Alto
+                </div>
+                <p class="text-base text-[#8a6d3b] max-w-sm">Reaplica tu protector solar cada 2 horas. La radiación está en su punto máximo en tu zona.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-10">
+        <div class="md:w-1/3 flex flex-col gap-8">
+            <div class="bg-[#f2f0e6] p-1.5 rounded-full flex relative shadow-inner">
+                <div id="switch-bg" class="absolute w-1/2 h-[calc(100%-12px)] bg-white rounded-full shadow-sm transition-transform duration-300 ease-out left-[6px] top-[6px]"></div>
+                
+                <button id="btn-am" onclick="toggleRoutine('AM')" class="w-1/2 py-3 rounded-full relative z-10 text-sm font-bold flex items-center justify-center gap-2 text-[#516356] transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">light_mode</span> AM: Despertar
+                </button>
+                <button id="btn-pm" onclick="toggleRoutine('PM')" class="w-1/2 py-3 rounded-full relative z-10 text-sm font-bold flex items-center justify-center gap-2 text-[#516356]/50 transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">dark_mode</span> PM: Reparar
+                </button>
+            </div>
+
+            <div>
+                <h3 class="font-serif font-bold text-[#516356] text-lg mb-4">Progreso Semanal</h3>
+                <div class="flex gap-2 justify-between">
+                    <div class="flex flex-col items-center gap-2"><span class="text-[10px] font-bold text-[#516356]/70">LU</span><div class="w-8 h-8 rounded-full bg-[#516356] text-white flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-sm">check</span></div></div>
+                    <div class="flex flex-col items-center gap-2"><span class="text-[10px] font-bold text-[#516356]/70">MA</span><div class="w-8 h-8 rounded-full bg-[#516356] text-white flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-sm">check</span></div></div>
+                    <div class="flex flex-col items-center gap-2"><span class="text-[10px] font-bold text-[#516356]/70">MI</span><div class="w-8 h-8 rounded-full bg-[#516356] text-white flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-sm">check</span></div></div>
+                    <div class="flex flex-col items-center gap-2"><span class="text-[10px] font-bold text-[#516356]/70">JU</span><div class="w-8 h-8 rounded-full bg-white text-[#516356] border border-[#dce1da] flex items-center justify-center font-bold text-xs">14</div></div>
+                    <div class="flex flex-col items-center gap-2"><span class="text-[10px] font-bold text-[#516356]/70">VI</span><div class="w-8 h-8 rounded-full bg-[#f2f0e6] text-[#516356]/70 flex items-center justify-center text-xs">15</div></div>
+                    <div class="flex flex-col items-center gap-2"><span class="text-[10px] font-bold text-[#516356]/70">SA</span><div class="w-8 h-8 rounded-full bg-[#f2f0e6] text-[#516356]/70 flex items-center justify-center text-xs">16</div></div>
+                    <div class="flex flex-col items-center gap-2"><span class="text-[10px] font-bold text-[#516356]/70">DO</span><div class="w-8 h-8 rounded-full bg-[#f2f0e6] text-[#516356]/70 flex items-center justify-center text-xs">17</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:w-2/3">
+            <div id="lista-am" class="flex flex-col gap-4">
+                {% if pasos_am %}
+                <div class="flex justify-end mb-1 pr-2">
+                    <button onclick="toggleEdicion('am')" class="flex items-center gap-1 text-sm font-bold text-[#516356]/70 hover:text-[#516356] transition-colors bg-white/50 px-3 py-1 rounded-full shadow-sm border border-[#516356]/10">
+                        <span class="material-symbols-outlined text-[16px]">edit</span> 
+                        <span id="texto-edit-am">Editar</span>
+                    </button>
+                </div>
+                {% endif %}
+
+                {% for paso in pasos_am %}
+                    <div class="bg-[#f2f0e6] rounded-3xl p-4 pr-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow border border-transparent hover:border-[#516356]/10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#516356] overflow-hidden shadow-sm">
+                                {% if paso.producto.imagen %}
+                                    <img src="{{ paso.producto.imagen.url }}" class="w-full h-full object-cover">
+                                {% else %}
+                                    <span class="material-symbols-outlined">water_drop</span>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-[#516356]/70 uppercase tracking-wider mb-1">Paso 0{{ forloop.counter }}</p>
+                                <h4 class="text-lg font-bold text-[#516356]">{{ paso.producto.nombre }}</h4>
+                                <p class="text-xs text-[#516356]/70">{{ paso.producto.marca }}</p>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center justify-center w-8 h-8">
+                            <button class="check-am absolute inset-0 rounded-full border border-[#516356]/20 flex items-center justify-center hover:bg-[#516356] hover:text-white transition-colors text-[#516356]/40">
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </button>
+                            <a href="{% url 'eliminar_paso' paso.id %}" class="delete-am hidden absolute inset-0 rounded-full bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200 transition-colors" title="Eliminar producto">
+                                <span class="material-symbols-outlined text-sm">delete</span>
+                            </a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="text-center py-10 text-[#516356]/60 border-2 border-dashed border-[#516356]/20 rounded-3xl flex flex-col items-center gap-2">
+                        <span class="material-symbols-outlined text-4xl opacity-50">wb_sunny</span>
+                        <p class="font-medium">Tu mañana está en blanco.</p>
+                    </div>
+                {% endfor %}
+                <button onclick="abrirModal('AM')" class="mt-2 mx-auto w-fit border-2 border-dashed border-[#516356]/30 text-[#516356] font-bold px-6 py-3 rounded-full hover:bg-[#516356] hover:text-white transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined">add</span> Agregar a mi mañana
+                </button>
+            </div>
+
+            <div id="lista-pm" class="flex flex-col gap-4 hidden">
+                {% if pasos_pm %}
+                <div class="flex justify-end mb-1 pr-2">
+                    <button onclick="toggleEdicion('pm')" class="flex items-center gap-1 text-sm font-bold text-[#516356]/70 hover:text-[#516356] transition-colors bg-white/50 px-3 py-1 rounded-full shadow-sm border border-[#516356]/10">
+                        <span class="material-symbols-outlined text-[16px]">edit</span> 
+                        <span id="texto-edit-pm">Editar</span>
+                    </button>
+                </div>
+                {% endif %}
+
+                {% for paso in pasos_pm %}
+                    <div class="bg-[#243328] text-[#fbf9f4] rounded-3xl p-4 pr-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#fbf9f4] overflow-hidden">
+                                {% if paso.producto.imagen %}
+                                    <img src="{{ paso.producto.imagen.url }}" class="w-full h-full object-cover">
+                                {% else %}
+                                    <span class="material-symbols-outlined">bedtime</span>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-white/50 uppercase tracking-wider mb-1">Paso 0{{ forloop.counter }}</p>
+                                <h4 class="text-lg font-bold">{{ paso.producto.nombre }}</h4>
+                                <p class="text-xs text-white/70">{{ paso.producto.marca }}</p>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center justify-center w-8 h-8">
+                            <button class="check-pm absolute inset-0 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-[#243328] transition-colors text-white/40">
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </button>
+                            <a href="{% url 'eliminar_paso' paso.id %}" class="delete-pm hidden absolute inset-0 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center hover:bg-red-500/40 hover:text-red-300 transition-colors" title="Eliminar producto">
+                                <span class="material-symbols-outlined text-sm">delete</span>
+                            </a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="text-center py-10 text-[#516356]/60 border-2 border-dashed border-[#516356]/20 rounded-3xl flex flex-col items-center gap-2">
+                        <span class="material-symbols-outlined text-4xl opacity-50">bedtime</span>
+                        <p class="font-medium">Tu noche está en blanco.</p>
+                    </div>
+                {% endfor %}
+                <button onclick="abrirModal('PM')" class="mt-2 mx-auto w-fit border-2 border-dashed border-[#516356]/30 text-[#516356] font-bold px-6 py-3 rounded-full hover:bg-[#243328] hover:border-[#243328] hover:text-white transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined">add</span> Agregar a mi noche
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="modal-agregar" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] hidden flex items-center justify-center opacity-0 transition-opacity duration-300 p-4">
+    <div class="bg-[#fbf9f4] rounded-3xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
+        <div class="flex justify-between items-center mb-6 shrink-0">
+            <div>
+                <h2 class="text-2xl font-serif font-bold text-[#516356]">Añadir a mi estante</h2>
+                <p class="text-sm text-[#516356]/80 mt-1">Selecciona el producto para tu rutina de <span id="texto-momento" class="font-bold text-[#516356] uppercase tracking-wider"></span>.</p>
+            </div>
+            <button onclick="cerrarModal()" class="text-[#516356]/70 hover:text-[#ef4444] transition-colors p-2 bg-[#f2f0e6] rounded-full flex items-center justify-center">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <form method="POST" action="{% url 'agregar_paso' %}" class="flex flex-col overflow-hidden flex-grow">
+            {% csrf_token %}
+            <input type="hidden" name="momento" id="input-momento" value="AM">
+            <input type="hidden" name="producto_id" id="input-producto-id" required>
+
+            <div class="overflow-y-auto pr-2 pb-4 flex-grow grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="grid-productos">
+                {% for p in productos_disponibles %}
+                    <div onclick="seleccionarProducto('{{ p.id }}', this)" class="producto-card bg-white border-2 border-transparent rounded-2xl p-4 flex flex-col items-center text-center cursor-pointer shadow-sm hover:shadow-md transition-all select-none">
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#f5f4ed] mb-3 flex items-center justify-center overflow-hidden shrink-0">
+                            {% if p.imagen %}
+                                <img src="{{ p.imagen.url }}" class="w-full h-full object-cover">
+                            {% else %}
+                                <span class="material-symbols-outlined text-[#516356]/50 text-3xl">vaccines</span>
+                            {% endif %}
+                        </div>
+                        <span class="text-[10px] font-bold text-[#516356]/70 uppercase tracking-wider mb-1 line-clamp-1">{{ p.marca }}</span>
+                        <h3 class="text-sm font-bold text-[#516356] leading-tight line-clamp-2">{{ p.nombre }}</h3>
+                    </div>
+                {% empty %}
+                    <div class="col-span-full text-center py-10 text-[#516356]/70 flex flex-col items-center">
+                        <span class="material-symbols-outlined text-4xl mb-2 opacity-50">search_off</span>
+                        <p>No hay productos en la bóveda de Nuri aún.</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-[#516356]/10 shrink-0">
+                <button type="submit" id="btn-guardar" disabled class="w-full bg-[#516356] text-white font-bold py-4 rounded-xl shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Selecciona un producto arriba
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Cambio de Pestañas AM/PM
+    function toggleRoutine(time) {
+        const bg = document.getElementById('switch-bg');
+        const btnAM = document.getElementById('btn-am');
+        const btnPM = document.getElementById('btn-pm');
+        const listaAM = document.getElementById('lista-am');
+        const listaPM = document.getElementById('lista-pm');
+
+        if (time === 'AM') {
+            bg.style.transform = 'translateX(0)';
+            btnAM.classList.add('text-[#516356]'); btnAM.classList.remove('text-[#516356]/50');
+            btnPM.classList.add('text-[#516356]/50'); btnPM.classList.remove('text-[#516356]');
+            listaAM.classList.remove('hidden'); listaPM.classList.add('hidden');
+        } else {
+            bg.style.transform = 'translateX(100%)';
+            btnPM.classList.add('text-[#516356]'); btnPM.classList.remove('text-[#516356]/50');
+            btnAM.classList.add('text-[#516356]/50'); btnAM.classList.remove('text-[#516356]');
+            listaPM.classList.remove('hidden'); listaAM.classList.add('hidden');
+        }
+    }
+
+    // Lógica del Modo Edición
+    let editModeAM = false;
+    let editModePM = false;
+
+    function toggleEdicion(momento) {
+        if (momento === 'am') {
+            editModeAM = !editModeAM;
+            document.querySelectorAll('.check-am').forEach(el => el.classList.toggle('hidden', editModeAM));
+            document.querySelectorAll('.delete-am').forEach(el => el.classList.toggle('hidden', !editModeAM));
+            document.getElementById('texto-edit-am').innerText = editModeAM ? 'Listo' : 'Editar';
+        } else {
+            editModePM = !editModePM;
+            document.querySelectorAll('.check-pm').forEach(el => el.classList.toggle('hidden', editModePM));
+            document.querySelectorAll('.delete-pm').forEach(el => el.classList.toggle('hidden', !editModePM));
+            document.getElementById('texto-edit-pm').innerText = editModePM ? 'Listo' : 'Editar';
+        }
+    }
+
+    // Lógica del Modal Visual
+    const modal = document.getElementById('modal-agregar');
+    const modalContent = document.getElementById('modal-content');
+    const inputMomento = document.getElementById('input-momento');
+    const textoMomento = document.getElementById('texto-momento');
+
+    function abrirModal(momento) {
+        inputMomento.value = momento;
+        textoMomento.innerText = momento === 'AM' ? 'la mañana' : 'la noche';
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modalContent.classList.remove('scale-95');
+        }, 10);
+    }
+
+    function cerrarModal() {
+        modal.classList.add('opacity-0');
+        modalContent.classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    function seleccionarProducto(id, elementoCarta) {
+        document.getElementById('input-producto-id').value = id;
+        document.querySelectorAll('.producto-card').forEach(carta => {
+            carta.classList.remove('border-[#516356]', 'bg-[#f2f0e6]');
+            carta.classList.add('border-transparent', 'bg-white');
+        });
+        elementoCarta.classList.remove('border-transparent', 'bg-white');
+        elementoCarta.classList.add('border-[#516356]', 'bg-[#f2f0e6]');
+        const btn = document.getElementById('btn-guardar');
+        btn.disabled = false;
+        btn.innerHTML = 'Guardar en mi estante <span class="material-symbols-outlined text-sm">arrow_forward</span>';
+    }
+</script>
+{% endblock %}

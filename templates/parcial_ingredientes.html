@@ -1,0 +1,71 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="resultados-busqueda">
+    {% for ingrediente in page_obj %}
+    <div class="glass-card p-8 rounded-xl shadow-sm text-left flex flex-col items-center md:items-start border border-white/20 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+        
+        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 
+            {% if ingrediente.categoria_principal == 'hidratante' %} bg-blue-100 text-blue-600
+            {% elif ingrediente.categoria_principal == 'exfoliante' %} bg-orange-100 text-orange-600
+            {% elif ingrediente.categoria_principal == 'antioxidante' %} bg-cyan-100 text-cyan-700
+            {% elif ingrediente.categoria_principal == 'calmante' %} bg-purple-100 text-purple-600
+            {% elif ingrediente.categoria_principal == 'seborregulador' %} bg-emerald-100 text-emerald-700
+            {% else %} bg-[#f5f4ed] text-stone-600 {% endif %}">
+            
+            <span class="material-symbols-outlined text-3xl">
+                {% if ingrediente.categoria_principal == 'hidratante' %} water_drop
+                {% elif ingrediente.categoria_principal == 'exfoliante' %} auto_awesome
+                {% elif ingrediente.categoria_principal == 'antioxidante' %} hub
+                {% elif ingrediente.categoria_principal == 'calmante' %} spa
+                {% elif ingrediente.categoria_principal == 'seborregulador' %} balance
+                {% else %} flare {% endif %}
+            </span>
+        </div>
+        
+        <h3 class="text-2xl font-serif font-bold text-primary mb-3">{{ ingrediente.nombre }}</h3>
+        
+        <span class="text-xs uppercase tracking-wider font-semibold mb-4 px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant">
+            {{ ingrediente.get_categoria_principal_display }}
+        </span>
+
+        <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">{{ ingrediente.beneficio_principal }}</p>
+
+        <a class="mt-auto flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all" href="{% url 'detalle_ingrediente' ingrediente.id %}">
+            Ver detalles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+
+    </div>
+    {% empty %}
+    <div class="col-span-3 text-center py-12 text-on-surface-variant">
+        <p>No se encontraron ingredientes con esa búsqueda.</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% if page_obj.has_other_pages %}
+<div class="flex justify-center items-center gap-4 mt-16" id="paginacion-busqueda">
+    
+    {% if page_obj.has_previous %}
+        <button hx-get="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}" hx-target="#zona-resultados" class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low text-primary hover:bg-primary-container transition-colors shadow-sm border border-outline-variant/10 cursor-pointer">
+            <span class="material-symbols-outlined text-sm">arrow_back_ios_new</span>
+        </button>
+    {% else %}
+        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-lowest text-outline-variant opacity-50 border border-outline-variant/10 cursor-not-allowed">
+            <span class="material-symbols-outlined text-sm">arrow_back_ios_new</span>
+        </div>
+    {% endif %}
+
+    <span class="text-sm font-medium text-on-surface-variant font-serif">
+        Página <span class="text-primary font-bold">{{ page_obj.number }}</span> de {{ page_obj.paginator.num_pages }}
+    </span>
+
+    {% if page_obj.has_next %}
+        <button hx-get="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}" hx-target="#zona-resultados" class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low text-primary hover:bg-primary-container transition-colors shadow-sm border border-outline-variant/10 cursor-pointer">
+            <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+        </button>
+    {% else %}
+        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-lowest text-outline-variant opacity-50 border border-outline-variant/10 cursor-not-allowed">
+            <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+        </div>
+    {% endif %}
+    
+</div>
+{% endif %}

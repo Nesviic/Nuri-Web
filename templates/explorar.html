@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nuri - El Saber de tu Piel{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/explorar.css' %}">
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+{% endblock %}
+
+{% block content %}
+<main class="flex-grow pt-28 pb-20 w-full">
+    <div class="max-w-7xl mx-auto px-8 w-full">
+        <section class="mb-24 text-center">
+            <div class="max-w-2xl mx-auto mb-12">
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-[#516356] mb-6">El Saber</h1>
+                <p class="text-[#516356]/80 leading-relaxed italic">
+                    Descubre la ciencia detrás de cada gota. En Nuri, desglosamos los activos para que comprendas el lenguaje de tu propia piel.
+                </p>
+            </div>
+            
+            <form class="relative max-w-xl mx-auto mb-16" onsubmit="event.preventDefault();">
+                <input 
+                    name="q" 
+                    value="{{ query|default:'' }}" 
+                    class="w-full bg-white border border-[#516356]/10 shadow-sm rounded-full py-4 px-12 text-lg focus:ring-2 focus:ring-[#516356]/20 placeholder:text-[#516356]/50 text-[#516356]" 
+                    placeholder="Busca ingredientes o beneficios..." 
+                    type="text"
+                    hx-get="{% url 'explorar' %}" 
+                    hx-trigger="keyup changed delay:300ms, search" 
+                    hx-target="#zona-resultados" 
+                    hx-push-url="true"
+                />
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#516356]/50">search</span>
+            </form>
+            
+            <div id="zona-resultados">
+                {% include 'parcial_ingredientes.html' %}
+            </div>
+        </section>
+
+        <section>
+            <div class="flex items-center gap-6 mb-12">
+                <h2 class="text-3xl font-serif font-bold text-[#516356] shrink-0">Rutinas que Inspiran</h2>
+                <div class="h-[2px] w-full bg-[#516356]/10 rounded-full max-w-xs"></div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}

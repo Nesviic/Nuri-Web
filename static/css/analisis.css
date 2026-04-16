@@ -1,0 +1,6 @@
+/* analisis.css */
+.glass-panel {
+    background: rgba(249, 247, 242, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}

@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Nuri Skincare AI{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="{% static 'js/tailwind-config.js' %}"></script>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-[#fbf9f4] text-[#516356] min-h-screen flex flex-col">
+
+    <header class="fixed top-0 w-full z-50 bg-[#F9F7F2]/90 backdrop-blur-xl border-b border-[#516356]/10">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[#516356]" data-icon="spa">spa</span>
+                <span class="text-2xl font-serif tracking-tighter text-[#516356]">Nuri</span>
+            </div>
+
+            <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wide font-medium mt-1">
+                <a class="nav-link {% if request.resolver_match.url_name == 'inicio' %}text-[#516356] font-bold border-b-2 border-[#516356] pb-1{% else %}text-[#516356]/70 hover:text-[#516356] transition-colors{% endif %}" href="{% url 'inicio' %}">Inicio</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'analisis' %}text-[#516356] font-bold border-b-2 border-[#516356] pb-1{% else %}text-[#516356]/70 hover:text-[#516356] transition-colors{% endif %}" href="{% url 'analisis' %}">Análisis</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'rutina' %}text-[#516356] font-bold border-b-2 border-[#516356] pb-1{% else %}text-[#516356]/70 hover:text-[#516356] transition-colors{% endif %}" href="{% url 'rutina' %}">Rutina</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'explorar' %}text-[#516356] font-bold border-b-2 border-[#516356] pb-1{% else %}text-[#516356]/70 hover:text-[#516356] transition-colors{% endif %}" href="{% url 'explorar' %}">Explorar</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button class="hidden sm:block bg-[#516356] text-white px-6 py-2 rounded-full text-sm font-bold hover:opacity-80 transition-all">Analizar</button>
+                
+                <div class="hidden sm:flex items-center gap-3 ml-2 border-l border-[#516356]/20 pl-4">
+                    {% if request.user.is_authenticated %}
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#f5f4ed] text-[#516356] font-serif font-bold text-lg shadow-sm border border-[#516356]/20" title="{{ request.user.username }}">
+                        {{ request.user.username|make_list|first|upper }}
+                    </div>
+                    <form method="POST" action="{% url 'logout' %}" class="m-0">
+                        {% csrf_token %}
+                        <button type="submit" class="text-[#516356]/70 hover:text-[#ef4444] transition-colors flex items-center" title="Cerrar sesión">
+                            <span class="material-symbols-outlined text-lg">logout</span>
+                        </button>
+                    </form>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="text-sm font-bold text-[#516356] hover:opacity-70">Entrar</a>
+                        <a href="{% url 'registro' %}" class="text-sm font-bold text-white bg-[#516356] px-4 py-2 rounded-full hover:opacity-90 ml-2">Registro</a>
+                    {% endif %}
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-[#516356] p-1 focus:outline-none transition-transform active:scale-90">
+                    <span class="material-symbols-outlined text-3xl transition-all duration-300">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#F9F7F2] border-t border-[#516356]/10 px-6 py-6 absolute w-full shadow-2xl left-0 top-full z-50 transition-all duration-300 origin-top">
+            <nav class="flex flex-col gap-6 text-sm uppercase tracking-wide font-medium">
+                <a class="{% if request.resolver_match.url_name == 'inicio' %}text-[#516356] font-bold{% else %}text-[#516356]/70 hover:text-[#516356] transition-colors{% endif %}" href="{% url 'inicio' %}">Inicio</a>
+                <a class="{% if request.resolver_match.url_name == 'analisis' %}text-[#516356] font-bold{% else %}text-[#516356]/70 hover:text-[#516356] transition-colors{% endif %}" href="{% url 'analisis' %}">Análisis</a>
+                <a class="{% if request.resolver_match.url_name == 'rutina' %}text-[#516356] font-bold{% else %}text-[#516356]/70 hover:text-[#516356] transition-colors{% endif %}" href="{% url 'rutina' %}">Rutina</a>
+                <a class="{% if request.resolver_match.url_name == 'explorar' %}text-[#516356] font-bold{% else %}text-[#516356]/70 hover:text-[#516356] transition-colors{% endif %}" href="{% url 'explorar' %}">Explorar</a>
+                
+                <div class="h-px bg-[#516356]/10 my-2"></div>
+                
+                {% if request.user.is_authenticated %}
+                    <a href="#" class="text-[#516356] font-bold flex items-center gap-2">
+                        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-[#516356] text-white font-serif text-sm">
+                            {{ request.user.username|make_list|first|upper }}
+                        </div>
+                        Mi Perfil
+                    </a>
+                    <form method="POST" action="{% url 'logout' %}" class="m-0 mt-2">
+                        {% csrf_token %}
+                        <button type="submit" class="text-[#ef4444] font-bold flex items-center gap-2">
+                            <span class="material-symbols-outlined">logout</span> Cerrar Sesión
+                        </button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="text-[#516356] font-bold text-lg">Entrar</a>
+                    <a href="{% url 'registro' %}" class="text-[#516356] font-bold text-lg">Registrarse</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="w-full mt-auto bg-[#f5f4ed] border-t border-[#516356]/10 py-12 text-center">
+        <div class="flex justify-center items-center gap-2 text-[#516356] mb-4">
+            <span class="material-symbols-outlined">spa</span>
+            <span class="font-serif font-bold text-lg">Nuri Skincare AI</span>
+        </div>
+        <div class="flex justify-center gap-8 text-[#516356]/70 text-sm font-medium mb-4">
+            <a class="hover:text-[#516356] transition-colors" href="#">Privacidad</a>
+            <a class="hover:text-[#516356] transition-colors" href="#">Términos</a>
+            <a class="hover:text-[#516356] transition-colors" href="#">Contacto</a>
+        </div>
+        <p class="text-sm text-[#516356]/50">© 2026 Nuri Skincare AI</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icono = mobileBtn.querySelector('span');
+                    icono.innerText = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+                });
+            }
+        });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>

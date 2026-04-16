@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nuri - Únete a nosotros{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/registro.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="flex-grow pt-28 pb-20 flex flex-col items-center justify-center px-6">
+    <div class="bg-white w-full max-w-md p-8 md:p-10 rounded-3xl shadow-lg border border-[#516356]/10">
+        <h2 class="text-3xl font-serif font-bold text-[#516356] mb-2 text-center">Crea tu santuario</h2>
+        <p class="text-center text-[#516356]/70 mb-8 text-sm">Únete para guardar tu rutina y análisis.</p>
+
+        <form method="POST" id="register-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="w-full mt-6 bg-[#516356] text-white py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all active:scale-95 shadow-md">
+                Crear cuenta
+            </button>
+        </form>
+
+        <div class="mt-8 text-center text-sm text-[#516356]/70">
+            ¿Ya tienes una cuenta? 
+            <a href="{% url 'login' %}" class="text-[#516356] font-bold hover:underline">Inicia sesión</a>
+        </div>
+    </div>
+</main>
+{% endblock %}

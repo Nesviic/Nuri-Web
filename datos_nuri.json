@@ -1,0 +1,432 @@
+[
+  {
+    "marca": "La Roche-Posay",
+    "nombre": "Hyalu B5 Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" },
+      { "nombre": "Pantenol", "beneficio_principal": "Repara la barrera cutánea y calma la irritación.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "La Roche-Posay",
+    "nombre": "Pure Niacinamide 10",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Niacinamida", "beneficio_principal": "Regula el sebo, mejora la textura y reduce manchas.", "categoria_principal": "seborregulador" }
+    ]
+  },
+  {
+    "marca": "La Roche-Posay",
+    "nombre": "Retinol B3 Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Retinol", "beneficio_principal": "Acelera la renovación celular y estimula el colágeno.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "La Roche-Posay",
+    "nombre": "Pure Vitamin C10",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Vitamina C", "beneficio_principal": "Ilumina, unifica el tono y protege de radicales libres.", "categoria_principal": "antioxidante" },
+      { "nombre": "Ácido Salicílico", "beneficio_principal": "Exfolia suavemente y desobstruye poros.", "categoria_principal": "exfoliante" }
+    ]
+  },
+  {
+    "marca": "La Roche-Posay",
+    "nombre": "Cicaplast Baume B5+",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Pantenol", "beneficio_principal": "Repara la barrera cutánea y calma la irritación.", "categoria_principal": "calmante" },
+      { "nombre": "Madecassoside", "beneficio_principal": "Acelera la regeneración y calma rojeces.", "categoria_principal": "calmante" },
+      { "nombre": "Zinc", "beneficio_principal": "Acción antibacteriana y seborreguladora.", "categoria_principal": "seborregulador" }
+    ]
+  },
+  {
+    "marca": "Vichy",
+    "nombre": "Minéral 89",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "Vichy",
+    "nombre": "Liftactiv Vitamin C 15%",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Vitamina C", "beneficio_principal": "Ilumina, unifica el tono y protege de radicales libres.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Vichy",
+    "nombre": "Normaderm Phytosolution",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Ácido Salicílico", "beneficio_principal": "Exfolia suavemente y desobstruye poros.", "categoria_principal": "exfoliante" }
+    ]
+  },
+  {
+    "marca": "Vichy",
+    "nombre": "Liftactiv Specialist",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Péptidos", "beneficio_principal": "Cadenas de aminoácidos que reafirman y producen colágeno.", "categoria_principal": "antioxidante" },
+      { "nombre": "Vitamina C", "beneficio_principal": "Ilumina, unifica el tono y protege de radicales libres.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Eucerin",
+    "nombre": "Hyaluron-Filler Day Cream",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "Eucerin",
+    "nombre": "DermoPure Oil Control Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Ácido Salicílico", "beneficio_principal": "Exfolia suavemente y desobstruye poros.", "categoria_principal": "exfoliante" }
+    ]
+  },
+  {
+    "marca": "Eucerin",
+    "nombre": "Hyaluron-Filler + Elasticity",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "Neutrogena",
+    "nombre": "Hydro Boost Water Gel",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "Neutrogena",
+    "nombre": "Rapid Wrinkle Repair",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Retinol", "beneficio_principal": "Acelera la renovación celular y estimula el colágeno.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Neutrogena",
+    "nombre": "Oil-Free Acne Wash",
+    "tipo_producto": "limpiador",
+    "ingredientes": [
+      { "nombre": "Ácido Salicílico", "beneficio_principal": "Exfolia suavemente y desobstruye poros.", "categoria_principal": "exfoliante" }
+    ]
+  },
+  {
+    "marca": "L'Oréal Paris",
+    "nombre": "Revitalift Filler Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "L'Oréal Paris",
+    "nombre": "Revitalift Retinol Puro",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Retinol", "beneficio_principal": "Acelera la renovación celular y estimula el colágeno.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "L'Oréal Paris",
+    "nombre": "Revitalift Cicacrem",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Centella Asiática", "beneficio_principal": "Regenerador botánico que calma inflamaciones.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "CeraVe",
+    "nombre": "Resurfacing Retinol Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Retinol", "beneficio_principal": "Acelera la renovación celular y estimula el colágeno.", "categoria_principal": "antioxidante" },
+      { "nombre": "Ceramidas", "beneficio_principal": "Lípidos esenciales que sellan la barrera cutánea.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "CeraVe",
+    "nombre": "Moisturizing Cream",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Ceramidas", "beneficio_principal": "Lípidos esenciales que sellan la barrera cutánea.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "CeraVe",
+    "nombre": "Limpiador Hidratante Facial",
+    "tipo_producto": "limpiador",
+    "ingredientes": [
+      { "nombre": "Ceramidas", "beneficio_principal": "Lípidos esenciales que sellan la barrera cutánea.", "categoria_principal": "hidratante" },
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "CeraVe",
+    "nombre": "PM Facial Moisturizing Lotion",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Niacinamida", "beneficio_principal": "Regula el sebo, mejora la textura y reduce manchas.", "categoria_principal": "seborregulador" },
+      { "nombre": "Ceramidas", "beneficio_principal": "Lípidos esenciales que sellan la barrera cutánea.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "ISDIN",
+    "nombre": "Isdinceutics Flavo-C",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Vitamina C", "beneficio_principal": "Ilumina, unifica el tono y protege de radicales libres.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "ISDIN",
+    "nombre": "Retinal Intense",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Retinal", "beneficio_principal": "Precursor rápido del ácido retinoico, potente antiedad.", "categoria_principal": "antioxidante" },
+      { "nombre": "Melatonina", "beneficio_principal": "Repara el daño celular durante el ciclo nocturno.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Avene",
+    "nombre": "Cicalfate+",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Zinc", "beneficio_principal": "Acción antibacteriana y seborreguladora.", "categoria_principal": "seborregulador" },
+      { "nombre": "Cobre", "beneficio_principal": "Elemento traza antibacteriano que ayuda en la cicatrización.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "The Ordinary",
+    "nombre": "Niacinamide 10% + Zinc 1%",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Niacinamida", "beneficio_principal": "Regula el sebo, mejora la textura y reduce manchas.", "categoria_principal": "seborregulador" },
+      { "nombre": "Zinc", "beneficio_principal": "Acción antibacteriana y seborreguladora.", "categoria_principal": "seborregulador" }
+    ]
+  },
+  {
+    "marca": "The Ordinary",
+    "nombre": "Multi-Peptide + HA",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Péptidos", "beneficio_principal": "Cadenas de aminoácidos que reafirman y producen colágeno.", "categoria_principal": "antioxidante" },
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "Pond's",
+    "nombre": "Bright Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Niacinamida", "beneficio_principal": "Regula el sebo, mejora la textura y reduce manchas.", "categoria_principal": "seborregulador" }
+    ]
+  },
+  {
+    "marca": "Olay",
+    "nombre": "Regenerist Collagen Peptide 24",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Péptidos", "beneficio_principal": "Cadenas de aminoácidos que reafirman y producen colágeno.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Nivea",
+    "nombre": "Q10 Energy",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Coenzima Q10", "beneficio_principal": "Poderoso antioxidante natural que energiza las células y defiende contra el envejecimiento prematuro.", "categoria_principal": "antioxidante" },
+      { "nombre": "Vitamina C", "beneficio_principal": "Ilumina, unifica el tono y protege de radicales libres.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Cetaphil",
+    "nombre": "Loción Hidratante",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Glicerina", "beneficio_principal": "Atrae agua a la piel, manteniéndola humectada sin ser pesada.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "Aveeno",
+    "nombre": "Calm + Restore Oat Gel",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Avena prebiótica", "beneficio_principal": "Alimenta el microbioma y calma pieles con eczemas o irritadas.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "Garnier",
+    "nombre": "Express Aclara",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Vitamina C", "beneficio_principal": "Ilumina, unifica el tono y protege de radicales libres.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Garnier",
+    "nombre": "AHA + BHA + Carbón",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Ácido Salicílico", "beneficio_principal": "Exfolia suavemente y desobstruye poros.", "categoria_principal": "exfoliante" }
+    ]
+  },
+  {
+    "marca": "Garnier",
+    "nombre": "Hydra Bomb Centella",
+    "tipo_producto": "mascarilla",
+    "ingredientes": [
+      { "nombre": "Centella Asiática", "beneficio_principal": "Regenerador botánico que calma inflamaciones.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "Torriden",
+    "nombre": "DIVE-IN Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" },
+      { "nombre": "Pantenol", "beneficio_principal": "Repara la barrera cutánea y calma la irritación.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "Isntree",
+    "nombre": "HA Water Essence",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Ácido Hialurónico", "beneficio_principal": "Rellena arrugas y aporta hidratación profunda.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "Beauty of Joseon",
+    "nombre": "Glow Serum: Propolis + Niacinamide",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Propóleo", "beneficio_principal": "Antibacteriano natural y cicatrizante.", "categoria_principal": "calmante" },
+      { "nombre": "Niacinamida", "beneficio_principal": "Regula el sebo, mejora la textura y reduce manchas.", "categoria_principal": "seborregulador" }
+    ]
+  },
+  {
+    "marca": "Anua",
+    "nombre": "Niacinamide 10% + TXA 4%",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Niacinamida", "beneficio_principal": "Regula el sebo, mejora la textura y reduce manchas.", "categoria_principal": "seborregulador" },
+      { "nombre": "Ácido Tranexámico", "beneficio_principal": "Potente despigmentante que bloquea la producción de melanina.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "COSRX",
+    "nombre": "The Vitamin C 23",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Vitamina C", "beneficio_principal": "Ilumina, unifica el tono y protege de radicales libres.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "COSRX",
+    "nombre": "BHA Blackhead Power Liquid",
+    "tipo_producto": "tonico",
+    "ingredientes": [
+      { "nombre": "Ácido Salicílico", "beneficio_principal": "Exfolia suavemente y desobstruye poros.", "categoria_principal": "exfoliante" }
+    ]
+  },
+  {
+    "marca": "Goodal",
+    "nombre": "Green Tangerine Vita C Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Vitamina C", "beneficio_principal": "Ilumina, unifica el tono y protege de radicales libres.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Some By Mi",
+    "nombre": "Retinol Intense Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Retinol", "beneficio_principal": "Acelera la renovación celular y estimula el colágeno.", "categoria_principal": "antioxidante" },
+      { "nombre": "Retinal", "beneficio_principal": "Precursor rápido del ácido retinoico, potente antiedad.", "categoria_principal": "antioxidante" },
+      { "nombre": "Bakuchiol", "beneficio_principal": "Alternativa vegetal al retinol, más suave.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Innisfree",
+    "nombre": "Retinol Cica Moisture Recovery Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Retinol", "beneficio_principal": "Acelera la renovación celular y estimula el colágeno.", "categoria_principal": "antioxidante" },
+      { "nombre": "Centella Asiática", "beneficio_principal": "Regenerador botánico que calma inflamaciones.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "Illiyoon",
+    "nombre": "Ceramide Ato Concentrate Cream",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Ceramidas", "beneficio_principal": "Lípidos esenciales que sellan la barrera cutánea.", "categoria_principal": "hidratante" }
+    ]
+  },
+  {
+    "marca": "Dr. Jart+",
+    "nombre": "Ceramidin Cream",
+    "tipo_producto": "crema",
+    "ingredientes": [
+      { "nombre": "Ceramidas", "beneficio_principal": "Lípidos esenciales que sellan la barrera cutánea.", "categoria_principal": "hidratante" },
+      { "nombre": "Pantenol", "beneficio_principal": "Repara la barrera cutánea y calma la irritación.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "Benton",
+    "nombre": "Aloe BHA Skin Toner",
+    "tipo_producto": "tonico",
+    "ingredientes": [
+      { "nombre": "Ácido Salicílico", "beneficio_principal": "Exfolia suavemente y desobstruye poros.", "categoria_principal": "exfoliante" },
+      { "nombre": "Aloe Vera", "beneficio_principal": "Extracto botánico clásico que calma quemaduras, refresca y aporta agua a la piel sin dejar sensación grasa.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "SKIN1004",
+    "nombre": "Madagascar Centella Ampoule",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Centella Asiática", "beneficio_principal": "Regenerador botánico que calma inflamaciones.", "categoria_principal": "calmante" }
+    ]
+  },
+  {
+    "marca": "Purito",
+    "nombre": "Wonder Releaf Centella Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Centella Asiática", "beneficio_principal": "Regenerador botánico que calma inflamaciones.", "categoria_principal": "calmante" },
+      { "nombre": "Péptidos", "beneficio_principal": "Cadenas de aminoácidos que reafirman y producen colágeno.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "Mary & May",
+    "nombre": "6 Peptide Complex Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Péptidos", "beneficio_principal": "Cadenas de aminoácidos que reafirman y producen colágeno.", "categoria_principal": "antioxidante" }
+    ]
+  },
+  {
+    "marca": "COSRX",
+    "nombre": "The 6 Peptide Skin Booster Serum",
+    "tipo_producto": "serum",
+    "ingredientes": [
+      { "nombre": "Péptidos", "beneficio_principal": "Cadenas de aminoácidos que reafirman y producen colágeno.", "categoria_principal": "antioxidante" }
+    ]
+  }
+]

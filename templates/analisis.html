@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nuri - Análisis{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/analisis.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="flex-grow pt-32 pb-20 px-6 max-w-7xl mx-auto w-full">
+    <section class="mb-24 text-center">
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-[#516356] mb-12 text-center">Analizar un Producto</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            <button class="group flex flex-col items-center p-10 bg-[#f5f4ed] rounded-xl transition-all duration-500 hover:bg-white hover:shadow-2xl border border-transparent hover:border-[#516356]/10">
+                <div class="w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-[#d4e7d8] text-[#516356] group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-4xl">photo_camera</span>
+                </div>
+                <span class="text-lg font-medium text-[#516356]/80 leading-tight">Subir Imagen de Ingredientes</span>
+            </button>
+            <button class="group flex flex-col items-center p-10 bg-[#f5f4ed] rounded-xl transition-all duration-500 hover:bg-white hover:shadow-2xl border border-transparent hover:border-[#516356]/10">
+                <div class="w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-[#d4e7d8] text-[#516356] group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-4xl">barcode_scanner</span>
+                </div>
+                <span class="text-lg font-medium text-[#516356]/80 leading-tight">Escanear Código de Barras</span>
+            </button>
+            <button class="group flex flex-col items-center p-10 bg-[#f5f4ed] rounded-xl transition-all duration-500 hover:bg-white hover:shadow-2xl border border-transparent hover:border-[#516356]/10">
+                <div class="w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-[#d4e7d8] text-[#516356] group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-4xl">search</span>
+                </div>
+                <span class="text-lg font-medium text-[#516356]/80 leading-tight">Buscar por Nombre</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="mb-24 relative">
+        <div class="bg-white p-12 rounded-xl border border-[#516356]/10 shadow-xl grid md:grid-cols-2 gap-16 items-center overflow-hidden">
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="relative w-64 h-64 flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90">
+                        <circle class="text-[#f5f4ed]" cx="50%" cy="50%" fill="transparent" r="45%" stroke="currentColor" stroke-width="8"></circle>
+                        <circle class="text-[#516356]" cx="50%" cy="50%" fill="transparent" r="45%" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="40" stroke-width="8"></circle>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span class="text-6xl font-serif font-bold text-[#516356]">86</span>
+                        <span class="text-sm uppercase tracking-widest text-[#516356]/60">Nuri Score</span>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-3xl font-serif font-bold text-[#516356]">Sérum Restaurador Botánico</h2>
+                <p class="text-[#516356]/80 leading-relaxed">Alta afinidad con la barrera lipídica natural. Los activos están en concentraciones óptimas.</p>
+                <div class="pt-4 grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-[#f5f4ed] rounded-lg border border-[#516356]/5">
+                        <p class="text-2xl font-serif text-[#516356]">12</p>
+                        <p class="text-xs text-[#516356]/60 uppercase tracking-tighter">Bio-activos</p>
+                    </div>
+                    <div class="p-4 bg-[#f5f4ed] rounded-lg border border-[#516356]/5">
+                        <p class="text-2xl font-serif text-[#516356]">0%</p>
+                        <p class="text-xs text-[#516356]/60 uppercase tracking-tighter">Parabenos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

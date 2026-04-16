@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nuri - El Mundo de tu Rutina{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="flex-grow pt-28 pb-32">
+    <section class="px-6 md:px-20 mb-20">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="text-5xl md:text-7xl leading-tight text-on-background tracking-tight">
+                    Nuri: <span class="italic font-normal">El Mundo</span> de tu Rutina
+                </h1>
+                <p class="text-lg md:text-xl text-[#516356]/80 max-w-md font-light leading-relaxed">
+                    Inteligencia Artificial para una piel impecable. Descubre el secreto de la cosmética adaptada a tu ADN cutáneo.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button class="bg-gradient-to-br from-[#516356] to-[#718376] text-white px-8 py-5 rounded-full text-lg font-medium shadow-xl hover:scale-105 transition-transform active:scale-95">
+                        Analizar mis productos
+                    </button>
+                    <button class="bg-[#f5f4ed] border border-[#516356]/20 text-[#516356] px-8 py-5 rounded-full text-lg font-medium hover:bg-[#e8e6db] transition-colors">
+                        Saber más
+                    </button>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl relative z-10 bg-[#f5f4ed] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-9xl text-[#516356]/20">spa</span>
+                </div>
+                <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-[#d4e7d8]/50 rounded-full blur-3xl -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 md:px-20 mb-28">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <span class="text-[#516356] font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Tecnología Patentada</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-[#516356]">Ciencia Detrás del Brillo</h2>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 bg-[#f5f4ed] rounded-xl p-8 md:p-12 relative overflow-hidden group">
+                    <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+                        <div class="w-full md:w-1/2 space-y-6">
+                            <div class="bg-white p-6 rounded-lg shadow-sm border border-[#516356]/10">
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="material-symbols-outlined text-[#516356]">qr_code_scanner</span>
+                                    <span class="text-sm font-medium uppercase tracking-tighter text-[#516356]">Escaneando...</span>
+                                </div>
+                                <ul class="space-y-3 font-mono text-xs text-[#516356]/70">
+                                    <li class="flex justify-between"><span>NIACINAMIDE 5%</span> <span class="text-[#516356] font-bold">DETECTADO</span></li>
+                                    <li class="flex justify-between"><span>HYALURONIC ACID</span> <span class="text-[#516356] font-bold">DETECTADO</span></li>
+                                </ul>
+                            </div>
+                            <h3 class="text-2xl font-serif font-bold text-[#516356]">Análisis Instantáneo</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#516356] text-white rounded-xl p-8 flex flex-col justify-between">
+                    <span class="material-symbols-outlined text-4xl">biotech</span>
+                    <div class="mt-auto">
+                        <span class="text-5xl font-serif">98%</span>
+                        <p class="text-white/70 mt-2 font-light">Precisión en identificación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,78 @@
+#register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; 
+}
+
+#register-form label {
+    display: block;
+    font-size: 0.875rem; 
+    font-weight: 600; 
+    color: #333; 
+    margin-bottom: 0.25rem; 
+}
+
+#register-form .helptext {
+    font-size: 0.75rem; 
+    color: #666; 
+    margin-top: 0.25rem;
+    display: block;
+    line-height: 1.4;
+}
+
+#register-form .errorlist {
+    color: #ef4444; 
+    font-size: 0.875rem; 
+    list-style-type: none; 
+    padding: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+#register-form input,
+#register-form select,
+#register-form textarea {
+    width: 100%; 
+    border: none; 
+    background-color: #fbf9f4; 
+    padding: 0.75rem 1rem; 
+    border-radius: 0.75rem; 
+    font-size: 0.875rem; 
+    color: #333;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+    transition: box-shadow 0.2s; 
+}
+
+#register-form input:focus,
+#register-form select:focus,
+#register-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(81, 99, 86, 0.2); 
+}
+
+#register-form select {
+    appearance: none; 
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23516356" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.25rem;
+    padding-right: 2.5rem; 
+}
+
+.register-form-footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.875rem; 
+    color: #666;
+}
+
+.register-form-footer a {
+    color: #516356; 
+    font-weight: 600; 
+    transition: opacity 0.2s;
+}
+
+.register-form-footer a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
