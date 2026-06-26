@@ -36,6 +36,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='inicio'), name='logout'),
     path('rutina/eliminar/<int:paso_id>/', views.eliminar_paso, name='eliminar_paso'),
     path('rutina/diagnostico/', views.actualizar_diagnostico, name='actualizar_diagnostico'),
+    path('producto/<int:producto_id>/analisis/', views.analizar_producto_ia, name='analizar_producto'),
 ]
 
 # Configuración para poder ver las imágenes multimedia en desarrollo local

@@ -159,3 +159,27 @@ def actualizar_diagnostico(request):
         messages.success(request, '¡Diagnóstico actualizado con éxito!')
         
     return redirect('rutina')
+
+def detalle_producto_view(request, producto_id):
+    # 1. Recuperar el producto específico de la Base de Datos
+    producto = get_object_or_404(Producto, pk=producto_id)
+    
+    # 2. Extraer la lista de nombres de sus ingredientes desde la relación ManyToMany
+    lista_ingredientes = producto.ingredientes.values_list('nombre', flat=True)
+    
+    # 3. Invocar al analizador Singleton
+    # No importa cuántos usuarios accedan en simultáneo, siempre responderá la misma instancia.
+    analizador = InciAnalyzer()
+    
+    # 4. Procesar la lógica de negocio a través del Singleton
+    resultado = analizador.analizar_compatibilidad(lista_ingredientes)
+    
+    # 5. Construir el contexto para la Vista (Template)
+    context = {
+        'producto': producto,
+        'es_compatible': resultado['es_compatible'],
+        'alertas': resultado['alertas'],
+        'ingredientes_totales': producto.ingredientes.all()
+    }
+    
+    return render(request, 'skincare/detalle_producto.html', context)

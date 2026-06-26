@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <h2>Análisis Inteligente INCI</h2>
+    <hr>
+    
+    <div class="row">
+        <div class="col-md-4">
+            {% if producto.imagen %}
+                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="img-fluid rounded shadow-sm">
+            {% endif %}
+        </div>
+        
+        <div class="col-md-8">
+            <h3>{{ producto.nombre }}</h3>
+            <h5 class="text-muted">{{ producto.marca }} | {{ producto.get_tipo_producto_display }}</h5>
+
+            <div class="card mt-4 mb-4 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">Veredicto Nuri:</h4>
+                    
+                    {% if es_compatible %}
+                        <p style="color: #28a745; font-weight: 600; font-size: 1.1rem;">
+                            ✓ Análisis completado. Este producto no contiene ingredientes marcados como riesgosos en nuestra base de datos.
+                        </p>
+                    {% else %}
+                        <p style="color: #dc3545; font-weight: 600; font-size: 1.1rem;">
+                            ⚠ Atención: Hemos detectado ingredientes que podrían generar sensibilidad o incompatibilidad:
+                        </p>
+                        <ul style="color: #dc3545;">
+                            {% for alerta in alertas %}
+                                <li>{{ alerta }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+
+            <h4>Fórmula completa:</h4>
+            <ul>
+                {% for ing in ingredientes_totales %}
+                    <li><strong>{{ ing.nombre }}</strong> <span class="text-muted">- {{ ing.get_categoria_principal_display }}</span></li>
+                {% empty %}
+                    <li>No hay ingredientes registrados para este producto.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

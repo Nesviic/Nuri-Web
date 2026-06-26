@@ -7,8 +7,8 @@ class Usuario(AbstractUser):
     
     # --- NUEVOS CAMPOS PARA EL DASHBOARD ---
     preocupaciones = models.CharField(max_length=200, blank=True, null=True)
-    hidratacion_actual = models.IntegerField(default=84) # 84% como en tu foto
-    racha_dias = models.IntegerField(default=12) # 12 días como en tu foto
+    hidratacion_actual = models.IntegerField(default=84) # 84% como en el dashboard
+    racha_dias = models.IntegerField(default=12) # 12 días de racha
 
     def __str__(self):
         return self.username
@@ -27,6 +27,10 @@ class Ingrediente(models.Model):
     nombre = models.CharField(max_length=100)
     beneficio_principal = models.CharField(max_length=200)
     categoria_principal = models.CharField(max_length=20, choices=CATEGORIAS, default='otro')
+    
+    # --- CAMPO NUEVO PARA EL SINGLETON ---
+    # Este campo permite que el InciAnalyzer sepa si debe levantar una alerta
+    es_seguro = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nombre
@@ -57,7 +61,6 @@ class Producto(models.Model):
 class Rutina(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='rutinas')
     nombre_rutina = models.CharField(max_length=100) 
-    # Mantenemos este campo para no romper tu base de datos vieja
     productos = models.ManyToManyField(Producto, related_name='rutinas', blank=True)
 
     def __str__(self):
@@ -70,7 +73,6 @@ class PasoRutina(models.Model):
         ('PM', 'Noche (PM)')
     ]
     
-    # Se conecta a la rutina y al producto
     rutina = models.ForeignKey(Rutina, on_delete=models.CASCADE, related_name='pasos')
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     
